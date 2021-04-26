@@ -31,13 +31,13 @@ export const startStateA = (word) => {
           break;
         }
         default: {
-          state = { ...state, status: "reject" };
+          state = { nextState: -1, status: "reject" };
         }
       }
     }
 
     if (state.status === "continue") {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 
@@ -63,7 +63,7 @@ const stateA1 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -75,7 +75,7 @@ const stateA2 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -87,7 +87,7 @@ const stateA3 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -99,7 +99,7 @@ const stateA5 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -111,7 +111,7 @@ const stateA6 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -123,7 +123,7 @@ const stateA8 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };

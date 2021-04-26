@@ -44,13 +44,13 @@ export const startStateB = (word) => {
         }
 
         default: {
-          state = { ...state, status: "reject" };
+          state = { nextState: -1, status: "reject" };
         }
       }
     }
 
     if (state.status === "continue") {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 
@@ -72,7 +72,7 @@ const stateB11 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -89,7 +89,7 @@ const stateB12 = (char) => {
     }
 
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -101,7 +101,7 @@ const stateB13 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -113,7 +113,7 @@ const stateB16 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -125,7 +125,7 @@ const stateB17 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -137,7 +137,7 @@ const stateB18 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -149,7 +149,7 @@ const stateB19 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -161,7 +161,7 @@ const stateB20 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
@@ -173,7 +173,7 @@ const stateB22 = (char) => {
       break;
     }
     default: {
-      state = { ...state, status: "reject" };
+      state = { nextState: -1, status: "reject" };
     }
   }
 };
