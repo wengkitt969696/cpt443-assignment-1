@@ -1,5 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { conjunctions, adjectives, adverbs } from "./dictionary";
+import { startState } from "./state/start-state";
 
 export default function App() {
-  return <h1>I'm React App</h1>;
+  const word = [...conjunctions, ...adjectives, ...adverbs];
+
+  const DFA = (word) => {
+    console.log(startState(word));
+  };
+
+  useEffect(() => {
+    word.sort();
+    word.forEach((data) => {
+      DFA(data);
+    });
+  }, []);
+
+  return <h1>hehe</h1>;
 }
