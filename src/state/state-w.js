@@ -1,15 +1,12 @@
-let state = { nextState: 84, status: "" };
+let state;
 
 export const startStateW = (word) => {
+  state = { nextState: 85, status: "" };
   if (word.length === 1) {
     state = { ...state, status: "reject" };
   } else {
     for (let i = 1; i < word.length; i++) {
       switch (state.nextState) {
-        case 84: {
-          stateW84(word[i]);
-          break;
-        }
         case 85: {
           stateW85(word[i]);
           break;
@@ -18,8 +15,12 @@ export const startStateW = (word) => {
           stateW86(word[i]);
           break;
         }
-        case 88: {
-          stateW88(word[i]);
+        case 87: {
+          stateW87(word[i]);
+          break;
+        }
+        case 89: {
+          stateW89(word[i]);
           break;
         }
         default: {
@@ -36,22 +37,9 @@ export const startStateW = (word) => {
   return state.status;
 };
 
-const stateW84 = (char) => {
-  switch (char) {
-    case "h": {
-      state = { nextState: 85, status: "continue" };
-      break;
-    }
-
-    default: {
-      state = { nextState: -1, status: "reject" };
-    }
-  }
-};
-
 const stateW85 = (char) => {
   switch (char) {
-    case "e": {
+    case "h": {
       state = { nextState: 86, status: "continue" };
       break;
     }
@@ -64,12 +52,8 @@ const stateW85 = (char) => {
 
 const stateW86 = (char) => {
   switch (char) {
-    case "n": {
-      state = { nextState: 87, status: "accept" };
-      break;
-    }
-    case "r": {
-      state = { nextState: 88, status: "continue" };
+    case "e": {
+      state = { nextState: 87, status: "continue" };
       break;
     }
 
@@ -79,10 +63,27 @@ const stateW86 = (char) => {
   }
 };
 
-const stateW88 = (char) => {
+const stateW87 = (char) => {
+  switch (char) {
+    case "n": {
+      state = { nextState: 88, status: "accept" };
+      break;
+    }
+    case "r": {
+      state = { nextState: 89, status: "continue" };
+      break;
+    }
+
+    default: {
+      state = { nextState: -1, status: "reject" };
+    }
+  }
+};
+
+const stateW89 = (char) => {
   switch (char) {
     case "e": {
-      state = { nextState: 89, status: "accept" };
+      state = { nextState: 90, status: "accept" };
       break;
     }
 

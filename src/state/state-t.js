@@ -1,15 +1,12 @@
-let state = { nextState: 74, status: "" };
+let state;
 
 export const startStateT = (word) => {
+  state = { nextState: 75, status: "" };
   if (word.length === 1) {
     state = { ...state, status: "reject" };
   } else {
     for (let i = 1; i < word.length; i++) {
       switch (state.nextState) {
-        case 74: {
-          stateT74(word[i]);
-          break;
-        }
         case 75: {
           stateT75(word[i]);
           break;
@@ -18,16 +15,20 @@ export const startStateT = (word) => {
           stateT76(word[i]);
           break;
         }
-        case 78: {
-          stateT78(word[i]);
+        case 77: {
+          stateT77(word[i]);
           break;
         }
-        case 80: {
-          stateT80(word[i]);
+        case 79: {
+          stateT79(word[i]);
           break;
         }
-        case 82: {
-          stateT82(word[i]);
+        case 81: {
+          stateT81(word[i]);
+          break;
+        }
+        case 83: {
+          stateT83(word[i]);
           break;
         }
 
@@ -45,31 +46,14 @@ export const startStateT = (word) => {
   return state.status;
 };
 
-const stateT74 = (char) => {
-  switch (char) {
-    case "h": {
-      state = { nextState: 75, status: "continue" };
-      break;
-    }
-    case "o": {
-      state = { nextState: 82, status: "continue" };
-      break;
-    }
-
-    default: {
-      state = { nextState: -1, status: "reject" };
-    }
-  }
-};
-
 const stateT75 = (char) => {
   switch (char) {
-    case "a": {
+    case "h": {
       state = { nextState: 76, status: "continue" };
       break;
     }
-    case "e": {
-      state = { nextState: 78, status: "continue" };
+    case "o": {
+      state = { nextState: 83, status: "continue" };
       break;
     }
 
@@ -81,8 +65,12 @@ const stateT75 = (char) => {
 
 const stateT76 = (char) => {
   switch (char) {
-    case "t": {
-      state = { nextState: 77, status: "accept" };
+    case "a": {
+      state = { nextState: 77, status: "continue" };
+      break;
+    }
+    case "e": {
+      state = { nextState: 79, status: "continue" };
       break;
     }
 
@@ -92,14 +80,27 @@ const stateT76 = (char) => {
   }
 };
 
-const stateT78 = (char) => {
+const stateT77 = (char) => {
+  switch (char) {
+    case "t": {
+      state = { nextState: 78, status: "accept" };
+      break;
+    }
+
+    default: {
+      state = { nextState: -1, status: "reject" };
+    }
+  }
+};
+
+const stateT79 = (char) => {
   switch (char) {
     case "n": {
-      state = { nextState: 79, status: "accept" };
+      state = { nextState: 80, status: "accept" };
       break;
     }
     case "r": {
-      state = { nextState: 80, status: "continue" };
+      state = { nextState: 81, status: "continue" };
       break;
     }
 
@@ -109,10 +110,10 @@ const stateT78 = (char) => {
   }
 };
 
-const stateT80 = (char) => {
+const stateT81 = (char) => {
   switch (char) {
     case "e": {
-      state = { nextState: 81, status: "accept" };
+      state = { nextState: 82, status: "accept" };
       break;
     }
 
@@ -122,10 +123,10 @@ const stateT80 = (char) => {
   }
 };
 
-const stateT82 = (char) => {
+const stateT83 = (char) => {
   switch (char) {
     case "o": {
-      state = { nextState: 83, status: "accept" };
+      state = { nextState: 84, status: "accept" };
       break;
     }
 

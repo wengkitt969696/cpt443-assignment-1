@@ -1,6 +1,7 @@
-let state = { nextState: 64, status: "" };
+let state;
 
 export const startStateR = (word) => {
+  state = { nextState: 64, status: "" };
   if (word.length === 1) {
     state = { ...state, status: "reject" };
   } else {
@@ -20,6 +21,10 @@ export const startStateR = (word) => {
         }
         case 67: {
           stateR67(word[i]);
+          break;
+        }
+        case 68: {
+          stateR68(word[i]);
           break;
         }
 
@@ -78,8 +83,20 @@ const stateR66 = (char) => {
 
 const stateR67 = (char) => {
   switch (char) {
+    case "l": {
+      state = { nextState: 68, status: "continue" };
+      break;
+    }
+
+    default: {
+      state = { nextState: -1, status: "reject" };
+    }
+  }
+};
+const stateR68 = (char) => {
+  switch (char) {
     case "y": {
-      state = { nextState: 68, status: "accept" };
+      state = { nextState: 69, status: "accept" };
       break;
     }
 

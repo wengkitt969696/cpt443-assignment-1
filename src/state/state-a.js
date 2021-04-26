@@ -1,6 +1,7 @@
-let state = { nextState: 1, status: "" };
+let state;
 
 export const startStateA = (word) => {
+  state = { nextState: 1, status: "" };
   if (word.length === 1) {
     state = { ...state, status: "reject" };
   } else {
