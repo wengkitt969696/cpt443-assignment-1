@@ -7,6 +7,10 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+
+    fullscreenable: false,
+    resizable: false,
+    fullscreen: false,
     webPreferences: {
       nodeIntegration: false,
       worldSafeExecuteJavaScript: true,
