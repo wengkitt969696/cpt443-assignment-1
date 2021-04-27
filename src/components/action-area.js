@@ -9,6 +9,7 @@ export const ActionArea = ({
   resetDFA,
   disableAction,
   numberString,
+  disableStartAction,
 }) => {
   return (
     <div
@@ -71,7 +72,7 @@ export const ActionArea = ({
             color="default"
             startIcon={<PlayCircleOutlineIcon />}
             onClick={() => startDFA()}
-            disabled={disableAction}
+            disabled={disableAction || disableStartAction}
           >
             Start DFA
           </Button>
