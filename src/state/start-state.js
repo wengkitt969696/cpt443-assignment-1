@@ -72,5 +72,5 @@ export const startState = (word) => {
     }
   }
 
-  return result === "accept" ? word + " is " + result : "";
+  return result;
 };
