@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 200,
     backgroundColor: "#4a4e69",
     overflow: "auto",
-    maxHeight: 459,
+    maxHeight: 500,
     marginTop: 14,
     marginBottom: 14,
     borderRadius: 5,
@@ -29,8 +29,8 @@ export const LanguageBar = ({ wordList }) => {
       </div>
       <List style={{ paddingTop: 0 }}>
         {wordList.map((data, index) => (
-          <div>
-            <ListItem key={index}>
+          <div key={index}>
+            <ListItem>
               <ListItemText style={{ color: "#f2e9e4" }}>{data}</ListItemText>
             </ListItem>
             <Divider />

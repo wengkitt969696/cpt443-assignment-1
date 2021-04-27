@@ -1,19 +1,22 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import ReplayIcon from "@material-ui/icons/Replay";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import Typography from "@material-ui/core/Typography";
-import Icon from "@material-ui/core/Icon";
-import SaveIcon from "@material-ui/icons/Save";
 
-export const ActionArea = () => {
+export const ActionArea = ({
+  startDFA,
+  resetDFA,
+  disableAction,
+  numberString,
+}) => {
   return (
     <div
       style={{
         width: 600,
         height: 100,
         marginTop: 10,
+        paddingBottom: 8,
       }}
     >
       <div
@@ -39,13 +42,13 @@ export const ActionArea = () => {
                 fontSize: 13,
               }}
             >
-              Total Word:
+              Total Word: {numberString.total}
             </Typography>
             <Typography style={{ margin: 10, color: "#f2e9e4", fontSize: 13 }}>
-              Total Accepted Word:
+              Total Accepted Word: {numberString.accept}
             </Typography>
             <Typography style={{ margin: 10, color: "#f2e9e4", fontSize: 13 }}>
-              Total Rejected Word:
+              Total Rejected Word: {numberString.reject}
             </Typography>
           </div>
         </div>
@@ -56,15 +59,19 @@ export const ActionArea = () => {
             variant="contained"
             color="default"
             startIcon={<ReplayIcon />}
+            onClick={() => resetDFA()}
+            disabled={disableAction}
           >
             Reset
           </Button>
 
           <Button
-            style={{ marginRight: 10, background: "#22223b", color: "#f2e9e4" }}
+            style={{ marginRight: 10, color: "#22223b" }}
             variant="contained"
             color="default"
             startIcon={<PlayCircleOutlineIcon />}
+            onClick={() => startDFA()}
+            disabled={disableAction}
           >
             Start DFA
           </Button>
