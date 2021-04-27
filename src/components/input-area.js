@@ -30,7 +30,7 @@ export const TextInputArea = ({ setInputText }) => {
           variant="outlined"
           onChange={(event) => {
             clearTimeout(timeout);
-            timeout = setTimeout(function () {
+            timeout = setTimeout(() => {
               setInputText(event.target.value);
             }, 100);
           }}
